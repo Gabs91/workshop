@@ -3,19 +3,19 @@ package model.services;
 import java.util.List;
 
 import model.dao.DaoFactory;
-import model.dao.DepartamentDao;
-import model.entities.Departament;
+import model.dao.DepartmentDao;
+import model.entities.Department;
 
 
 
 public class DepartmentServive {
 	
-	private DepartamentDao dao = DaoFactory.createDepartamentDao();
+	private DepartmentDao dao = DaoFactory.createDepartmentDao();
 	
-	public List<Departament> findAll() {
+	public List<Department> findAll() {
 		return dao.findAll();
 	}
-	public void saveOrUpdate(Departament obj) {
+	public void saveOrUpdate(Department obj) {
 		if (obj.getId() == null) {
 			dao.insert(obj);
 		}
@@ -23,7 +23,7 @@ public class DepartmentServive {
 			dao.update(obj);
 		}
 	}
-	public void remove(Departament obj) {
+	public void remove(Department obj) {
 		dao.deleteById(obj.getId());
 		
 	}

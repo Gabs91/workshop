@@ -19,13 +19,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.entities.Departament;
+import model.entities.Department;
 import model.exception.ValidationException;
 import model.services.DepartmentServive;
 
 public class DepartmentFormController implements Initializable {
 	
-	private Departament entity;
+	private Department entity;
 	private DepartmentServive service;
 	
 	@FXML
@@ -45,7 +45,7 @@ public class DepartmentFormController implements Initializable {
 	@FXML
 	private Button btCancel;
 	
-	public void setDepartment (Departament entity) {
+	public void setDepartment (Department entity) {
 		this.entity = entity;
 	}
 	
@@ -85,8 +85,8 @@ public class DepartmentFormController implements Initializable {
 		}
 	}
 
-	private Departament getFormData() {
-		Departament obj = new Departament();
+	private Department getFormData() {
+		Department obj = new Department();
 		ValidationException exception = new ValidationException("Validation Error");
 		
 		obj.setId(Utils.tryParseToInt(txtId.getText()));
@@ -110,6 +110,7 @@ public class DepartmentFormController implements Initializable {
 	public void initialize(URL ul, ResourceBundle rb) {		
 	}
 	
+	@SuppressWarnings("unused")
 	private void initializeNodes() {
 		Constraints.setTextFieldInteger(txtId);
 		Constraints.setTextFieldMaxLength(txtName, 30);
